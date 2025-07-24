@@ -147,7 +147,7 @@ Dependencies are managed via `pyproject.toml`. Example:
 
 ```toml
 [project]
-name = "deep-research"
+name = "deep-research-assistance"
 version = "0.1.0"
 dependencies = [
     "gradio",
