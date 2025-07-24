@@ -1,4 +1,4 @@
-# Deep Research – Multi-Agent Research Assistant
+# Deep Research – Multi-Agent Research Assistant -OPENAI-SDK
 
 A **multi-agent AI-powered research assistant** that:
 
