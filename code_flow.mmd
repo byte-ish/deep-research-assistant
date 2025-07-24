@@ -1,0 +1,29 @@
+flowchart TD
+    %% Styles
+    classDef entry fill:#87CEEB,stroke:#333,stroke-width:2px,color:#000;
+    classDef orchestrator fill:#FFD700,stroke:#333,stroke-width:2px,color:#000;
+    classDef agent fill:#90EE90,stroke:#333,stroke-width:2px,color:#000;
+    classDef external fill:#D3D3D3,stroke:#333,stroke-width:2px,color:#000;
+
+    %% Nodes
+    A["deep_research.py<br>Gradio UI<br>run(query)"]:::entry
+    B["research_manager.py<br>ResearchManager.run()"]:::orchestrator
+    C["planner_agent.py<br>PlannerAgent (plan_searches)"]:::agent
+    D["search_agent.py<br>SearchAgent (perform_searches)"]:::agent
+    E["writer_agent.py<br>WriterAgent (write_report)"]:::agent
+    F["email_agent.py<br>EmailAgent (send_email)"]:::agent
+    G["WebSearchTool<br>(Google/Bing)"]:::external
+    H["SendGrid API<br>(Email Service)"]:::external
+
+    %% Flow
+    A -->|"Calls"| B
+    B -->|"Plans searches"| C
+    C -->|"Returns WebSearchPlan"| B
+    B -->|"Performs searches"| D
+    D -->|"Calls"| G
+    D -->|"Returns summaries"| B
+    B -->|"Generates report"| E
+    E -->|"Returns ReportData"| B
+    B -->|"Sends email"| F
+    F -->|"Uses"| H
+    B -->|"Streams updates + Final Markdown report"| A

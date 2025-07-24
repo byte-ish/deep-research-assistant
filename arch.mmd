@@ -1,0 +1,30 @@
+flowchart TD
+    %% Styles
+    classDef ui fill:#87CEEB,stroke:#333,stroke-width:2px,color:#000;
+    classDef manager fill:#FFD700,stroke:#333,stroke-width:2px,color:#000;
+    classDef agent fill:#90EE90,stroke:#333,stroke-width:2px,color:#000;
+    classDef email fill:#FFB6C1,stroke:#333,stroke-width:2px,color:#000;
+    classDef external fill:#D3D3D3,stroke:#333,stroke-width:2px,color:#000;
+
+    %% Nodes
+    A["User Query (Gradio UI)"]:::ui
+    B["ResearchManager (Orchestrator)"]:::manager
+    C["PlannerAgent (Search Planning)"]:::agent
+    D["SearchAgent (Web Search & Summaries)"]:::agent
+    E["WriterAgent (Report Generation)"]:::agent
+    F["EmailAgent (Send Report via Email)"]:::email
+    G["SendGrid / Email Service"]:::external
+    H["Web Search Tool (Google/Bing)"]:::external
+
+    %% Connections
+    A -->|"User submits query"| B
+    B -->|"Plan searches"| C
+    C -->|"Returns search terms"| B
+    B -->|"Perform searches"| D
+    D -->|"Returns search summaries"| B
+    D -->|"Executes queries"| H
+    B -->|"Generate report"| E
+    E -->|"Returns markdown report + summary"| B
+    B -->|"Send report"| F
+    F -->|"Email with report"| G
+    B -->|"Display final report"| A
