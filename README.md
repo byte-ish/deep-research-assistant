@@ -111,8 +111,8 @@ This project uses **[uv](https://docs.astral.sh/uv/)** for modern Python packagi
 ### **1. Clone the repo**
 
 ```bash
-git clone https://github.com/yourusername/deep-research.git
-cd deep-research
+git clone https://github.com/byte-is/deep-research-assistant.git
+cd deep-research-assistant
 ```
 
 ### **2. Add your environment variables**
