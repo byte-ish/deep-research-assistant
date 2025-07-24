@@ -168,14 +168,6 @@ This system is **modular**. You can:
 * Add **more agents** (e.g., fact-checking agent, RAG pipeline).
 * Improve **output formats** (e.g., export as PDF).
 
----
-
-## **Next Steps**
-
-* Add **observability** (Prometheus/Grafana).
-* Implement **auth** (API keys for UI).
-* Add **unit & integration tests**.
-* Build a **Helm chart** for Kubernetes deployment.
 
 ---
 
